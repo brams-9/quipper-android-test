@@ -49,7 +49,7 @@ The project follows the MVVM architecture pattern:
 
 - **Retrofit**: For network requests.
 - **Gson**: For JSON parsing.
-- **Glide**: For image loading.
+- **Picasso**: For image loading.
 - **Hilt**: For dependency injection.
 - **Mockito**: For unit testing.
 
