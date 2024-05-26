@@ -1,5 +1,9 @@
 package com.example.quipperandroidtest.Models.DataModel;
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class PlaylistDataModel(
     val title: String?,
     val presenter_name: String?,
@@ -7,4 +11,4 @@ data class PlaylistDataModel(
     val thumbnail_url: String?,
     val video_url: String?,
     val video_duration: Long
-)
+): Parcelable

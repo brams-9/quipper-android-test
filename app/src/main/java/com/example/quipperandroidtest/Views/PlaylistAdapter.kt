@@ -1,5 +1,7 @@
 package com.example.quipperandroidtest.Views
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +12,7 @@ import com.example.quipperandroidtest.Models.DataModel.PlaylistDataModel
 import com.example.quipperandroidtest.R
 import com.squareup.picasso.Picasso
 
-class PlaylistAdapter : RecyclerView.Adapter<PlaylistAdapter.VideoViewHolder>() {
+class PlaylistAdapter(private val context: Context) : RecyclerView.Adapter<PlaylistAdapter.VideoViewHolder>() {
 
     private var videoList = listOf<PlaylistDataModel>()
 
@@ -33,17 +35,31 @@ class PlaylistAdapter : RecyclerView.Adapter<PlaylistAdapter.VideoViewHolder>() 
         return videoList.size
     }
 
-    class VideoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class VideoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
         private val presenterTextView: TextView = itemView.findViewById(R.id.presenterTextView)
         private val durationTextView: TextView = itemView.findViewById(R.id.durationTextView)
         private val thumbnailImageView: ImageView = itemView.findViewById(R.id.thumbnailImageView)
 
         fun bind(video: PlaylistDataModel) {
-            titleTextView.text = video.title
-            presenterTextView.text = video.presenter_name
-            durationTextView.text = formatDuration(video.video_duration)
-            Picasso.get().load(video.thumbnail_url).into(thumbnailImageView)
+            itemView.apply {
+
+                titleTextView.text = video.title
+                presenterTextView.text = video.presenter_name
+                durationTextView.text = formatDuration(video.video_duration)
+                Picasso.get().load(video.thumbnail_url).into(thumbnailImageView)
+
+                setOnClickListener {
+                    val intent = Intent(context, VideoDetailActivity::class.java).apply {
+                        putExtra("videoItem", video)
+                    }
+                    context.startActivity(intent)
+                }
+            }
+
+
+
+
         }
 
         private fun formatDuration(duration: Long): String {

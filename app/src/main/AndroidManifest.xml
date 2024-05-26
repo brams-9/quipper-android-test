@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -13,6 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuipperAndroidTest"
         tools:targetApi="34">
+        <activity
+            android:name=".Views.VideoDetailActivity"
+            android:exported="true"
+            android:label="@string/title_activity_video_detail"
+            android:theme="@style/Theme.QuipperAndroidTest.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".HomeScreenMainActivity"
             android:exported="true"
@@ -29,8 +41,5 @@
                 android:value="" />
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

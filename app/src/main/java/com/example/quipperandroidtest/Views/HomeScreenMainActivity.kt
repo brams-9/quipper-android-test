@@ -22,7 +22,7 @@ class HomeScreenMainActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.videoRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val adapter = PlaylistAdapter()
+        val adapter = PlaylistAdapter(this)
         recyclerView.adapter = adapter
 
         playlistViewModel.videos.observe(this, Observer { videos ->
