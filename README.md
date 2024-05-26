@@ -25,7 +25,7 @@ can tap on a video item to view its details and watch the video.
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/brams-9/mvvm-kotlin-android.git
+    git clone https://github.com/brams-9/quipper-android-test.git
     ```
 2. Open the project in Android Studio.
 
