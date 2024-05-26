@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,9 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuipperAndroidTest"
-        tools:targetApi="31">
+        tools:targetApi="34">
         <activity
-            android:name=".MainApplication"
+            android:name=".HomeScreenMainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.QuipperAndroidTest">
@@ -28,5 +29,8 @@
                 android:value="" />
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
